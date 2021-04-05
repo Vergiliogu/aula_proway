@@ -6,7 +6,7 @@
 
 # Criação de lista
 lista = []
-# ou 
+# ou
 lista = list()
 
 
