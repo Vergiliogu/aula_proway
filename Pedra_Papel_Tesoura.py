@@ -106,6 +106,9 @@ def executar_jogo():
             if resultado[0]:
                 break
 
+        jogador1.limpar_mao_atual()
+        jogador2.limpar_mao_atual()
+
 
 executar_jogo()
 
