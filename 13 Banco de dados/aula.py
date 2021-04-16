@@ -1,7 +1,7 @@
-# import MySQLdb
-#
-# conn = MySQLdb.connect(db="Llama", user="root", host="localhost", port=3306)
-# cursor = conn.cursor()
+import MySQLdb
+
+conn = MySQLdb.connect(db="Llama", user="root", host="localhost", port=3306)
+cursor = conn.cursor()
 
 
 # cursor.execute("select * from aqui")
@@ -33,10 +33,10 @@
 
 # ///////////////////////////////////////////////////////////////
 
-# sql = f"""
-#       Delete from aqui
-#       where cpf = '000'
-#       """
-#
-# cursor.execute(sql)
-# conn.commit()
+sql = f"""
+      Delete from aqui
+      where cpf = ?
+      """
+
+cursor.execute(sql, [bytes("002", "utf8")])
+conn.commit()
