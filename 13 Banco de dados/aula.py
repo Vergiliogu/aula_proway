@@ -35,8 +35,23 @@ cursor = conn.cursor()
 
 sql = f"""
       Delete from aqui
-      where cpf = ?
+      where cpf = '65465'
       """
 
-cursor.execute(sql, [bytes("002", "utf8")])
-conn.commit()
+cursor.execute(sql)
+print(conn.commit())
+
+
+def delete_data(id: str):
+    sql = "DELETE FROM aqui WHERE id = ?"
+
+    cursor.execute(sql, [id])
+    try:
+        conn.commit()
+        return True
+    except:
+        return False
+
+
+delete_data("655554864")
+
