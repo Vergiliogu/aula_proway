@@ -1,4 +1,4 @@
-from unittest import TestCase
+from unittest import TestCase, mock
 from funcoes.bora import *
 
 
@@ -24,3 +24,15 @@ class TestandoBora(TestCase):
     def test_lista(self):
         self.assertTrue(listadef(0))
         self.assertFalse(listadef(1))
+
+    # @mock.patch("funcoes.bora.randint", return_value=2)
+    # def test_muitas_strings_works(self, mock_rand):
+    #     self.assertEqual(muitas_strings("ABC"), "")
+
+    @mock.patch("funcoes.bora.listadef")
+    @mock.patch("funcoes.bora.randint")
+    def test_muitas_strings_works(self, mock_rand, mock_listadef):
+        mock_rand.return_value = 2
+        self.assertEqual(muitas_strings("ABC"), "ABCABC")
+
+        mock_rand.assert_has_calls([mock.call(1, 2), mock.call(1, 100)])

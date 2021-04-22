@@ -22,3 +22,12 @@ def listadef(n):
     except:
         return False
 
+
+from random import randint
+
+
+def muitas_strings(string):
+    randint(1, 2)
+    return string * randint(1, 100)
+
+
