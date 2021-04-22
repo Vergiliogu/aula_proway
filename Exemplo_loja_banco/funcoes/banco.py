@@ -7,8 +7,7 @@ class Banco:
         self.saldo = 50000000
         self.codigo_banco = 180
         self.codigo_tipo_pagamento = {"0": self.efetuar_pagamento_com_cartao_credito,
-                                      "1": self.efetuar_pagamento_com_cartao_debito,
-                                      "2": self.efetuar_pagamento_com_boleto}
+                                      "1": self.efetuar_pagamento_com_cartao_debito}
 
     def validar_dados_do_cartao(self, modalidade_pagamento, detalhes_pagamento):
         with open("cartoes.txt", "r") as file:
@@ -84,14 +83,10 @@ class Banco:
         for simbolo in ["-", ".", ":", " "]:
             atual_instante = atual_instante.replace(simbolo, "")
 
-        codigo = ""
-        codigo += str(self.codigo_banco)
+        codigo = str(self.codigo_banco)
         codigo += atual_instante
         codigo += str(dados_requisicao["valor"]).replace(".", "")
 
         return codigo
 
-
-# teste = Banco()
-# print(teste.efetuar_pagamento_com_cartao_credito(dict(numero="1734", senha="3322", valor=8000)))
 
