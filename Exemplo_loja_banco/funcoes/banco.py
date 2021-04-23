@@ -12,7 +12,7 @@ class Banco:
     def validar_dados_do_cartao(self, modalidade_pagamento, detalhes_pagamento):
         with open("cartoes.txt", "r") as file:
             lines = file.readlines()
-
+        print(lines)
         verificacoes = []
         for linha in lines:
             linha = linha.split(";")
