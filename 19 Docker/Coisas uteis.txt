@@ -1,0 +1,51 @@
+# Baixa uma imagem já existente no dockerhub
+~ docker pull <imagem>
+
+
+# Cria uma imagem
+# A criação de uma imagem exige um arquivo chamado Dockerfile
+~ docker build <caminho do Dockerfile>
+# Comando extras:
+-t <nome que a imagem terá> 
+
+
+# Cria um container
+~ docker container create [OPTIONS] <imagem>
+# Comandos extras
+-p <porta que rodará no pc>:<porta que rodará no docker>
+--net <nome de rede já existente>
+--net-alias <nome que será dado ao container do ponto de vista de rede>
+--name <nome>
+-e <variável de ambiente>
+
+
+# Inicia um container já criado
+~ docker start <nome do container>
+
+
+# Cria e já inicia um container
+~ docker run [OPTIONS] <imagem>
+
+
+# Cria uma rede
+~ docker network create <nome>
+
+
+# Conecta um container já existente à uma rede
+~ docker network connect <rede já existente> <container>
+
+
+# Cria um container com mysql banco de dados
+~ docker container create [OPTIONS] mysql:5.7
+--net <nome da rede já existente>
+--net-alias <nome do alias>
+--name <nome do container>
+-p 3306:3306
+-e MYSQL_ALLOW_EMPTY_PASSWORD=yes
+-e MYSQL_DATABASE=<nome>
+
+
+# Cria um container com api flask
+~ docker container create [OPTIONS] <imagem da api flask>
+--name <nome do container>
+-p 5000:5000
