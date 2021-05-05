@@ -8,7 +8,7 @@ import pandas as pd
 app = Flask(__name__)
 
 
-@app.route("/consultar_cpf/")
+@app.route("/consultar_cpf/", methods=["POST"])
 @app.route("/consultar_cpf/<cpf>")
 def consultar_divida(cpf=None):
     # Verifica se o cpf foi informado e é válido:
