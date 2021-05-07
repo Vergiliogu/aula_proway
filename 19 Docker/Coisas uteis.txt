@@ -4,7 +4,7 @@
 
 # Cria uma imagem
 # A criação de uma imagem exige um arquivo chamado Dockerfile
-~ docker build <caminho do Dockerfile>
+~ docker build [OPTIONS] <caminho do Dockerfile>
 # Comando extras:
 -t <nome que a imagem terá> 
 
@@ -47,5 +47,7 @@
 
 # Cria um container com api flask
 ~ docker container create [OPTIONS] <imagem da api flask>
+--net <nome da rede já existente>
+--net-alias <nome do alias>
 --name <nome do container>
 -p 5000:5000
